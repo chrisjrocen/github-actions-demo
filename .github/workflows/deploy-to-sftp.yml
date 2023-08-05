@@ -14,5 +14,5 @@ jobs:
         target-server: ${{ secrets.server }}
         remote-user: ${{ secrets.username }}
         private-ssh-key: ${{ secrets.ssh_key }}
-        destination-path: applications/yrvguuwjba/public_html/wp-content/plugins/
+        destination-path: applications/
         
