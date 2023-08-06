@@ -26,6 +26,6 @@ add_filter( 'gettext', function ( $translated_text ) {
 add_action('wp_enqueue_scripts', 'jeff_plugin_enqueue_scripts');
 function jeff_plugin_enqueue_scripts()
 {
-	wp_enqueue_style('Main styles file', plugin_dir_url( __FILE__ ) . 'style.css', array(), 0.1, 'all');
+	wp_enqueue_style('Main styles file', plugin_dir_url( __FILE__ ) . 'styles.css', array(), 0.1, 'all');
 
 }
