@@ -1,18 +1,24 @@
-on: push
-name: Deploy to sftp
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy on push
 jobs:
   web-deploy:
-    name: 🚀 Deploy Website Every Commit
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get Latest Code
-      uses: actions/checkout@v3
-    
-    - name: 📂 Sync Files
-      uses: SamKirkland/web-deploy@v1
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        target-server: ${{ secrets.server }}
-        remote-user: ${{ secrets.username }}
-        private-ssh-key: ${{ secrets.ssh_key }}
-        destination-path: applications/
-        
+        server: ${{ secrets.server }}
+        username: ${{ secrets.username }}
+        password: ${{ secrets.password }}
+        server-dir: public_html/wp-content/plugins/
+
+        exclude: |
+          **/.git*
+          **/.git*/**
