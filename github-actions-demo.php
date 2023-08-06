@@ -6,13 +6,10 @@
  * Author: chris
  */
 
-
-
-     SOME_CONST===23;
-foo() && bar();
-! $foo;
-array( 1,2,3);
-$baz . '-5';
-$term .= 'X';
-if ($object instanceof Post_Type_Interface ) {}
-$result = 2 ** 3; // 8.
+// Alter WooCommerce Billing Details Text.
+add_filter( 'gettext', function ( $translated_text ) {
+	if ( 'my awesome Services' === $translated_text ) {
+		$translated_text = 'What I do';
+	}
+	return $translated_text;
+});
